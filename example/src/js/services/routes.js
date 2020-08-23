@@ -9,6 +9,11 @@ export default [
 	},
 	{
 		exact: true,
+		path: "/candle",
+		to: lazy(() => import(/* webpackChunkName: "Candle" */ '../views/Candle')),
+	},
+	{
+		exact: true,
 		path: "/",
 		to: lazy(() => import(/* webpackChunkName: "Home" */ '../views/Home')),
 	},
