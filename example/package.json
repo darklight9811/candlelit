@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aposoftworks/yamiassu": "^0.3.2",
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.5.2",
+    "formalization": "^1.4.9",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
+    "react-complete-router": "^1.5.12",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
   },
