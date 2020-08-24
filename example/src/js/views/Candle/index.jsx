@@ -6,13 +6,16 @@ import Graph from './shared/Graph';
 import List from './shared/List';
 import Item from './shared/Item';
 
+// Placeholder
+import placeholderlist from '../../services/initialCandleGraph.json';
+
 export default function Candle () {
 	//-------------------------------------------------
 	// Properties
 	//-------------------------------------------------
 
 	// states
-	const [ graph, setgraph ] = React.useState([{open:10, close: 15, high: 20, low:15}]);
+	const [ graph, setgraph ] = React.useState(placeholderlist);
 
 	//-------------------------------------------------
 	// Render
