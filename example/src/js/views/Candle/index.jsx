@@ -8,6 +8,7 @@ import Item from '../../components/CandleItem';
 
 // Placeholder
 import placeholderlist from '../../services/initialCandleGraph.json';
+import Button from '../../components/Button';
 
 export default function Candle () {
 	//-------------------------------------------------
@@ -16,6 +17,17 @@ export default function Candle () {
 
 	// states
 	const [ graph, setgraph ] = React.useState(placeholderlist);
+
+	//-------------------------------------------------
+	// Callbacks
+	//-------------------------------------------------
+
+	const onAdd = React.useCallback(() => {
+		const newgraph = [...graph];
+		newgraph.push({open:0, close:0, high:0, low:0});
+
+		setgraph(newgraph);
+	}, [graph]);
 
 	//-------------------------------------------------
 	// Render
@@ -29,9 +41,12 @@ export default function Candle () {
 						<Graph graph={graph} />
 					</div>
 					<div className="col-md-6">
-						<List graph={graph}>
-							<Item setgraph={setgraph} last={graph.length} graph={graph} />
-						</List>
+						<div className="d-flex justify-content-center flex-column">
+							<List graph={graph}>
+								<Item setgraph={setgraph} last={graph.length} graph={graph} />
+							</List>
+							<Button onClick={onAdd}>Add new candle</Button>
+						</div>
 					</div>
 				</div>
 				<div className="row">
