@@ -54,7 +54,7 @@ export default function Item ({setgraph, graph, last, index, ...candle}) {
 	}, [data, graph, index, setgraph]);
 
 	const onDelete = React.useCallback(() => {
-		const newgraph = [...graph].splice(index, 1);
+		const newgraph = [...graph].filter((x, _index) => _index !== index);
 
 		setgraph(newgraph);
 	}, [graph, index, setgraph]);

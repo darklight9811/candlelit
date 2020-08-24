@@ -4,7 +4,7 @@ import React from 'react';
 // Style
 import style from './style.module.css';
 
-export default function Candle ({high, low, open, close, average, units}) {
+export default function Candle ({high, low, open, close, units}) {
 
 	//-------------------------------------------------
 	// Memos
@@ -20,19 +20,19 @@ export default function Candle ({high, low, open, close, average, units}) {
 	}, [open, close]);
 
 	const wickSize = React.useMemo(() => {
-		return (Math.abs(high - low) * units) + "px";
+		return (Math.abs(high - low) * units) || 0 + "px";
 	}, [high, low, units]);
 
 	const candleSize = React.useMemo(() => {
-		return (Math.abs(open - close) * units) + "px";
+		return (Math.abs(open - close) * units) || 0 + "px";
 	}, [open, close, units]);
 
 	const wickStartPosition = React.useMemo(() => {
-		return low * units;
+		return low * units || 0;
 	}, [low, units]);
 
 	const candleStartPosition = React.useMemo(() => {
-		return ((open < close ? open:close) - low) * units;
+		return ((open < close ? open:close) - low) * units || 0;
 	}, [close, low, open, units]);
 
 	//-------------------------------------------------

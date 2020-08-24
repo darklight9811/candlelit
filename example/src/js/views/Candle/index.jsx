@@ -39,6 +39,7 @@ export default function Candle () {
 				<div className="row">
 					<div className="col-md-6">
 						<Graph graph={graph} />
+						<p>No patterns detected</p>
 					</div>
 					<div className="col-md-6">
 						<div className="d-flex justify-content-center flex-column">
