@@ -11,11 +11,11 @@ export default function List ({graph, children}) {
 		const response = [];
 
 		for (let i = 0; i < graph.length; i++) {
-			return React.cloneElement(children, {
+			response.push(React.cloneElement(children, {
 				key: i,
 				index: i,
 				...graph[i],
-			});
+			}));
 		}
 
 		return response;

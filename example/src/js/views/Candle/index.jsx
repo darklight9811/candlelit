@@ -4,7 +4,7 @@ import React from 'react';
 // Components
 import Graph from './shared/Graph';
 import List from './shared/List';
-import Item from './shared/Item';
+import Item from '../../components/CandleItem';
 
 // Placeholder
 import placeholderlist from '../../services/initialCandleGraph.json';
@@ -30,7 +30,7 @@ export default function Candle () {
 					</div>
 					<div className="col-md-6">
 						<List graph={graph}>
-							<Item setgraph={setgraph} />
+							<Item setgraph={setgraph} last={graph.length} graph={graph} />
 						</List>
 					</div>
 				</div>

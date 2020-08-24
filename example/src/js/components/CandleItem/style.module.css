@@ -1,0 +1,17 @@
+.button {
+	margin: 0;
+	padding: 10px !important;
+}
+
+.content {
+	line-height: 36px;
+}
+
+.arrows {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+.arrows:hover {
+	cursor: pointer;
+}

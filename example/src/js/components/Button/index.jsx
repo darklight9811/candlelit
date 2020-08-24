@@ -2,24 +2,24 @@
 import React from 'react';
 import { Link } from 'react-complete-router';
 
-export default function Button (props) {
+export default function Button ({className, color = "primary", fill = "background", ...props}) {
 
 	//-------------------------------------------------
 	// Memos
 	//-------------------------------------------------
 
-	const className = React.useMemo(() => {
+	const _className = React.useMemo(() => {
 		const response = [];
 
 		// Required classes
 		response.push('button');
-		response.push('background-primary-interactive');
+		response.push(`${fill}-${color}-interactive`);
 
 		// Optional classes
-		if (props.className) response.push(props.className);
+		if (className) response.push(className);
 
 		return response.join(' ');
-	}, [props.className]);
+	}, [className, fill, color]);
 
 	//-------------------------------------------------
 	// Render
@@ -28,13 +28,13 @@ export default function Button (props) {
 	// button is a link
 	if (props.href) {
 		return (
-			<Link to={props.href} className={className}>
+			<Link to={props.href} className={_className}>
 				{props.children}
 			</Link>
 		);
 	}
 	return (
-		<button className={className}>
+		<button {...props} className={_className}>
 			{props.children}
 		</button>
 	);
