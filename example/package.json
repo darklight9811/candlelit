@@ -8,10 +8,13 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "apexcharts": "^3.20.0",
+    "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "formalization": "^1.4.9",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
+    "react-apexcharts": "^1.3.7",
     "react-complete-router": "^1.5.12",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"

@@ -1,8 +1,9 @@
 // Packages
 import React from 'react';
+import ApexChart from 'react-apexcharts';
+import axios from 'axios';
 
 // Components
-import Graph from './shared/Graph';
 import List from './shared/List';
 import Item from '../../components/CandleItem';
 
@@ -30,6 +31,38 @@ export default function Candle () {
 	}, [graph]);
 
 	//-------------------------------------------------
+	// Memos
+	//-------------------------------------------------
+
+	const options = React.useMemo(() => {
+		return {
+			dataLabels:{enabled:false},
+			tooltip:{enabled:false},
+			legend:{show:false},
+		};
+	}, []);
+
+	const series = React.useMemo(() => {
+		return graph.map((item, index) => {
+			return  [index, item.open, item.high, item.low, item.close];
+		});
+	}, [graph]);
+
+	const onFetch = React.useCallback(() => {
+		axios.get('https://testnet.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=100')
+		.then((response) => {
+			setgraph(response.data.map(item => {
+				return {
+					open: item[1].replace(/[0]+$/, ''),
+					high: item[2].replace(/[0]+$/, ''),
+					low: item[3].replace(/[0]+$/, ''),
+					close: item[4].replace(/[0]+$/, ''),
+				};
+			}));
+		});
+	}, []);
+
+	//-------------------------------------------------
 	// Render
 	//-------------------------------------------------
 
@@ -38,15 +71,20 @@ export default function Candle () {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-6">
-						<Graph graph={graph} />
+						<div className="row">
+							<Button onClick={onFetch}>Fetch from binance</Button>
+						</div>
+						<ApexChart options={options} type="candlestick" series={[{data:series}]} height={350} />
 						<p>No patterns detected</p>
 					</div>
 					<div className="col-md-6">
-						<div className="d-flex justify-content-center flex-column">
-							<List graph={graph}>
-								<Item setgraph={setgraph} last={graph.length} graph={graph} />
-							</List>
-							<Button onClick={onAdd}>Add new candle</Button>
+						<div style={{maxHeight:500, overflow:"auto"}}>
+							<div className="d-flex justify-content-center flex-column">
+								<List graph={graph}>
+									<Item setgraph={setgraph} last={graph.length} graph={graph} />
+								</List>
+								<Button onClick={onAdd}>Add new candle</Button>
+							</div>
 						</div>
 					</div>
 				</div>
