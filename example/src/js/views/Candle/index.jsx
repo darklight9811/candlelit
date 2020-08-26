@@ -14,6 +14,9 @@ import Button from '../../components/Button';
 // Library
 import { analyzeCandle } from 'candlelit';
 
+// Image
+import logo from '../../../img/candle.svg';
+
 // Part
 import style from './style.module.css';
 
@@ -59,15 +62,20 @@ export default function Candle () {
 
 		// No matches found
 		if (!match.length) {
-			return 'No patterns detected'
+			return 'No patterns detected';
 		}
 
 		// Parse to JSX
-		return match.map(item => {
-			const type = item.type ? style[item.type]:'';
+		const response = [];
 
-			return <span className={type}>{item.name}</span>
-		});
+		response.push("Patterns matched: ");
+
+		for (let i = 0; i < match.length; i++) {
+			const type = match[i].type ? style[match[i].type]:'';
+			response.push(<span className={type}>{match[i].name}</span>);
+		}
+
+		return response;
 	}, [graph]);
 
 	const patternsAvailable = React.useMemo(() => {
@@ -114,7 +122,10 @@ export default function Candle () {
 	return (
 		<div className="background-dark py-5">
 			<div className="container">
-				<h1 className="mb-5">Candlestick chart patterns</h1>
+				<div className="d-flex mb-5">
+					<img alt="candlelit logo" src={logo} className="col-1" />
+					<h1 className="col-11 m-0">Candlestick chart patterns</h1>
+				</div>
 
 				<div className="row">
 					<div className="col-md-6">
@@ -143,7 +154,7 @@ export default function Candle () {
 					<p>Some of the earliest technical trading analysis was used to track prices of rice in the 18th century. Much of the credit for candlestick charting goes to Munehisa Homma (1724–1803), a rice merchant from Sakata, Japan who traded in the Ojima Rice market in Osaka during the Tokugawa Shogunate. According to Steve Nison, however, candlestick charting came later, probably beginning after 1850</p>
 				</div>
 				<div className="row">
-					<h3 className="title mt-5 mb-2">Patterns available</h3>
+					<h3 className="title mt-5 mb-4">Patterns available</h3>
 
 					{patternsAvailable}
 				</div>

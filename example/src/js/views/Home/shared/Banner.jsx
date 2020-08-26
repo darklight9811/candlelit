@@ -24,7 +24,7 @@ export default function Banner () {
 			<img src={NY} className={style.image} alt="New York at night" />
 
 			<div className="d-flex justify-content-center mt-5">
-				<img className="col-md-2" src={logo} alt="Candlelit logo" />
+				<img className="col-md-3" src={logo} alt="Candlelit logo" />
 			</div>
 
 			<h1 className={style.title}>Candlelit</h1>

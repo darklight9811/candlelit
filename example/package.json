@@ -18,7 +18,7 @@
     "react-complete-router": "^1.5.12",
     "react-dom": "^16.13.1",
 	"react-scripts": "3.4.3",
-	"candlelit": "file:../../candlelit/build"
+	"candlelit": "file:../../candlelit"
   },
   "scripts": {
     "start": "react-scripts start",

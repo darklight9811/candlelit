@@ -6,7 +6,7 @@ export default interface iResponse {
 	// More in-depth description that could help indicate situations
 	description?: string,
 	// Does it indicate buy or sell?
-	type?: "bullish" | "bearish",
+	type?: "long" | "short",
 	// Link with more info about the pattern (should go to the repository wiki)
 	link?: string,
 }

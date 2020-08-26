@@ -3,7 +3,7 @@ import candlegraph 					from '../../interfaces/candle';
 import patternResponse, {cacheInfo}	from '../../interfaces/general';
 
 let patternlist: Function[] = [];
-let cache: cacheInfo;
+let cache: cacheInfo = {} as any;
 
 /**
  * The main function that actually analyses data
@@ -26,6 +26,9 @@ function analyze (graph: candlegraph, _patternList?: Function[], overwrite?: boo
 
 	return response;
 }
+
+analyze._patternlist = patternlist;
+analyze._cache = cache;
 
 /**
  * @param {Function} func Add the pattern detector to the global pattern list 

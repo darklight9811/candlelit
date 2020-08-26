@@ -14,3 +14,8 @@ body {
 a > i {
 	line-height: 23px !important;
 }
+
+.title:after {
+	margin: 0;
+	margin-left: 20px;
+}

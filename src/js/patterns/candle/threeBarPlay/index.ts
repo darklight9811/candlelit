@@ -1,15 +1,8 @@
-// Interfaces
-import candleStickChart from "../../../interfaces/candle";
-import patternResponse	from '../../../interfaces/general';
-
 // Part
 import info from './info';
+import pattern from './pattern';
 
-/**
- * 
- * @param {candleStickChart} graph Graph to be analyzed 
- */
-export default function threeBarPlay (graph: candleStickChart): patternResponse {
+// Add description to function body
+(pattern as any).info = info;
 
-	return info;
-}
+export default pattern;
