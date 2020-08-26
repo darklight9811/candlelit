@@ -2,9 +2,36 @@
   "name": "candlelit",
   "version": "0.1.0",
   "description": "A set of tools to detect patterns in graphs",
-  "main": "src/js/index.js",
-  "repository": "https://github.com/darklight9811/candlelit",
-  "author": "Rafael Correa",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "watch": "tsc src/js/index.ts --watch --outDir build",
+    "build": "tsc",
+    "format": "prettier --write \"src/js/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "keywords": [
+    "graph",
+    "tools",
+    "typescript",
+    "javascript"
+  ],
+  "author": "rafael.chaves98@hotmail.com",
   "license": "BSD-3-Clause",
-  "private": false
+  "devDependencies": {
+    "@types/jest": "^26.0.7",
+    "jest": "^26.1.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.4",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {}
 }
