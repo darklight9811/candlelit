@@ -17,7 +17,8 @@
     "react-apexcharts": "^1.3.7",
     "react-complete-router": "^1.5.12",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+	"react-scripts": "3.4.3",
+	"candlelit": "file:../../candlelit/build"
   },
   "scripts": {
     "start": "react-scripts start",

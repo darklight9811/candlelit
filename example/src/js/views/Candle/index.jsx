@@ -11,6 +11,12 @@ import Item from '../../components/CandleItem';
 import placeholderlist from '../../services/initialCandleGraph.json';
 import Button from '../../components/Button';
 
+// Library
+import { analyzeCandle } from 'candlelit';
+
+// Part
+import style from './style.module.css';
+
 export default function Candle () {
 	//-------------------------------------------------
 	// Properties
@@ -48,6 +54,45 @@ export default function Candle () {
 		});
 	}, [graph]);
 
+	const patternsMatched = React.useMemo(() => {
+		const match = analyzeCandle(graph);
+
+		// No matches found
+		if (!match.length) {
+			return 'No patterns detected'
+		}
+
+		// Parse to JSX
+		return match.map(item => {
+			const type = item.type ? style[item.type]:'';
+
+			return <span className={type}>{item.name}</span>
+		});
+	}, [graph]);
+
+	const patternsAvailable = React.useMemo(() => {
+		return analyzeCandle.list().map(item => {
+			const { info } = item;
+
+			return (
+				<div className="card">
+					<div className="row">
+						<div className="col-md-4">
+							{info.name}
+						</div>
+						<div className="col-md-8">
+							{info.description}
+						</div>
+					</div>
+				</div>
+			);
+		});
+	}, []);
+
+	//-------------------------------------------------
+	// Callbacks
+	//-------------------------------------------------
+
 	const onFetch = React.useCallback(() => {
 		axios.get('https://testnet.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=100')
 		.then((response) => {
@@ -67,15 +112,18 @@ export default function Candle () {
 	//-------------------------------------------------
 
 	return (
-		<div className="background-dark fullscreen py-5">
+		<div className="background-dark py-5">
 			<div className="container">
+				<h1 className="mb-5">Candlestick chart patterns</h1>
+
 				<div className="row">
 					<div className="col-md-6">
 						<div className="row">
+							<Button href="/"><i className="fa fa-arrow-left" /></Button>
 							<Button onClick={onFetch}>Fetch from binance</Button>
 						</div>
 						<ApexChart options={options} type="candlestick" series={[{data:series}]} height={350} />
-						<p>No patterns detected</p>
+						<p>{patternsMatched}</p>
 					</div>
 					<div className="col-md-6">
 						<div style={{maxHeight:500, overflow:"auto"}}>
@@ -96,6 +144,8 @@ export default function Candle () {
 				</div>
 				<div className="row">
 					<h3 className="title mt-5 mb-2">Patterns available</h3>
+
+					{patternsAvailable}
 				</div>
 			</div>
 		</div>
