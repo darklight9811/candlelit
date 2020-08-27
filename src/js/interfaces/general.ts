@@ -1,4 +1,4 @@
-export default interface iResponse {
+export default interface Response {
 	// SID that should not change, ever
 	id: string,
 	// Human readable name
@@ -11,6 +11,6 @@ export default interface iResponse {
 	link?: string,
 }
 
-export interface cacheInfo {
+export interface CacheInfo {
 	maxCandles: number,
 }

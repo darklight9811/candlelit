@@ -9,9 +9,9 @@ import { generateCandle } from '../../../helpers/candlestick';
 
 describe("Test three bar play", () => {
 
-	//-------------------------------------------------
+	// -------------------------------------------------
 	// Candle quantity
-	//-------------------------------------------------
+	// -------------------------------------------------
 
 	it ("It should return false to only two candles", () => {
 		const graph: chart = [
@@ -32,9 +32,9 @@ describe("Test three bar play", () => {
 		expect(pattern(graph)).toBeDefined();
 	});
 
-	//-------------------------------------------------
+	// -------------------------------------------------
 	// Candle type
-	//-------------------------------------------------
+	// -------------------------------------------------
 
 	it ("It should return true for long, short, long candles", () => {
 		const graph: chart = [
@@ -116,9 +116,9 @@ describe("Test three bar play", () => {
 		expect(pattern(graph)).toBeUndefined();
 	});
 
-	//-------------------------------------------------
+	// -------------------------------------------------
 	// Candle size comparison
-	//-------------------------------------------------
+	// -------------------------------------------------
 
 	it ("It should return false for candles with the same size", () => {
 		const graph: chart = [
