@@ -23,7 +23,7 @@ export default function pattern (graph: candleStickChart): patternResponse | und
 		const candle3 = graph[i + 2];
 
 		// Check types (long, short, long)
-		if (!isLong(candle1) && isLong(candle2) && !isLong(candle3)) return;
+		if (!isLong(candle1) || isLong(candle2) || !isLong(candle3)) return;
 
 		// Get candle size
 		const candleSize1 = candle1[3] - candle1[0];
