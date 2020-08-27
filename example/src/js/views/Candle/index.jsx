@@ -6,6 +6,7 @@ import axios from 'axios';
 // Components
 import List from './shared/List';
 import Item from '../../components/CandleItem';
+import PatternItem from '../../components/PatternItem';
 
 // Placeholder
 import placeholderlist from '../../services/initialCandleGraph.json';
@@ -19,7 +20,6 @@ import logo from '../../../img/candle.svg';
 
 // Part
 import style from './style.module.css';
-const images = require.context('../../../img/patterns/candle', true);
 
 export default function Candle () {
 	//-------------------------------------------------
@@ -82,28 +82,9 @@ export default function Candle () {
 	const patternsAvailable = React.useMemo(() => {
 		return analyzeCandle.list().map(item => {
 			const { info } = item;
-			const description = info.description? info.description:"No description given";
 
 			return (
-				<div className="card">
-					<div className="row">
-						<div className="col-md-2">
-							<img className="col-10 offset-1" alt={`${info.name} visual chart`} src={images(`./${info.id}.svg`)} />
-							<div className="text-center mt-3">
-								{info.name}
-							</div>
-						</div>
-						<div className="col-md-10">
-							{description}
-							<div className="col-md-3">
-								{
-									info.link &&
-									<a className="button background-secondary-interactive" rel="noopener noreferrer" href={info.link} target="_blank">See more here</a>
-								}
-							</div>
-						</div>
-					</div>
-				</div>
+				<PatternItem info={info} />
 			);
 		});
 	}, []);

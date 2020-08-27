@@ -1,18 +1,18 @@
 // Interfaces
-import candlegraph 					from '../../interfaces/candle';
-import patternResponse, {cacheInfo}	from '../../interfaces/general';
+import candlegraph, {candlePatternFunction} from '../../interfaces/candle';
+import patternResponse, {cacheInfo}			from '../../interfaces/general';
 
-let patternlist: Function[] = [];
+let patternlist: candlePatternFunction[] = [];
 let cache: cacheInfo = {} as any;
 
 /**
  * The main function that actually analyses data
  * 
  * @param {candlegraph} graph The candlestick graph to be analyzed
- * @param {Function[]} patternChecklist The patterns that will be used to analyze the graph
+ * @param {candlePatternFunction[]} patternChecklist The patterns that will be used to analyze the graph
  * @returns {patternResponse[]} The matched patterns
  */
-function analyze (graph: candlegraph, _patternList?: Function[], overwrite?: boolean): patternResponse[] {
+function analyze (graph: candlegraph, _patternList?: candlePatternFunction[], overwrite?: boolean): patternResponse[] {
 	const funcs 	= _patternList ? (overwrite? patternlist.concat(_patternList):_patternList):patternlist;
 	const _graph 	= cache? (graph.reverse().slice(0, cache.maxCandles).reverse()):graph;
 	let response 	= [] as patternResponse[];
@@ -31,11 +31,11 @@ analyze._patternlist = patternlist;
 analyze._cache = cache;
 
 /**
- * @param {Function} func Add the pattern detector to the global pattern list 
+ * @param {candlePatternFunction} func Add the pattern detector to the global pattern list 
  */
-analyze.add = (func: Function) => patternlist.push(func);
+analyze.add = (func: candlePatternFunction) => patternlist.push(func);
 /**
- * @returns {Function[]} Return a list of all the global pattern detector functions
+ * @returns {candlePatternFunction[]} Return a list of all the global pattern detector functions
  */
 analyze.list = () => patternlist;
 /**
