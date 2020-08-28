@@ -11,3 +11,4 @@ Developed by Rafael Correa Chaves and Guilherme Vitorino as a way to easily impl
 Remember that testing a large chart with many patterns can be a costy process, so avoid using it every change you make to the chart. Or scope to the patterns you actually care about.
 ### Candlestick
 #### 3 Bar Play
+#### Reversed 3 Bar Play
