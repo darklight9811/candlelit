@@ -16,7 +16,7 @@ import Button from '../../components/Button';
 import { analyzeCandle } from 'candlelit';
 
 // Image
-import logo from '../../../img/candle.svg';
+import logo from '../../../img/favicon.svg';
 
 // Part
 import style from './style.module.css';
@@ -132,8 +132,8 @@ export default function Candle () {
 							options={{
 								legend: 'none',
 								candlestick: {
-									fallingColor: { strokeWidth: 0, fill: '#a52714' }, // red
-									risingColor: { strokeWidth: 0, fill: '#0f9d58' }, // green
+									fallingColor: { strokeWidth: 0, fill: '#BA0000' }, // red
+									risingColor: { strokeWidth: 0, fill: '#009311' }, // green
 								}
 							}}
 						/>

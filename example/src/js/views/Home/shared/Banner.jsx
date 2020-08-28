@@ -6,7 +6,7 @@ import Button from '../../../components/Button';
 import Starfield from '../../../components/Starfield';
 
 // Images
-import logo from '../../../../img/candle.svg';
+import logo from '../../../../img/logo.svg';
 import NY from '../../../../img/background.svg';
 
 // Style
@@ -24,10 +24,8 @@ export default function Banner () {
 			<img src={NY} className={style.image} alt="New York at night" />
 
 			<div className="d-flex justify-content-center mt-5">
-				<img className="col-md-3" src={logo} alt="Candlelit logo" />
+				<img className={"col-md-6 " + style.title} src={logo} alt="Candlelit logo" />
 			</div>
-
-			<h1 className={style.title}>Candlelit</h1>
 
 			<div className="col-md-8 offset-md-2">
 				<p>Candlelit is a bundle of useful functions and patterns to help you build your own matches for entry points in any market.</p>

@@ -17,7 +17,7 @@ export default function PatternItem ({info}) {
 	const typedisplay = React.useMemo(() => {
 		const color = info.type ? (info.type === "long" ? "green":"red"):"white";
 
-		return <span className="ml-1" style={{color}}>({info.type})</span>;
+		return <span className="ml-1" style={{color}}>{info.type}</span>;
 	}, [info]);
 
 	//-------------------------------------------------
@@ -25,16 +25,17 @@ export default function PatternItem ({info}) {
 	//-------------------------------------------------
 
 	return (
-		<div className="card">
+		<div className="card mb-2 pb-0">
 			<div className="row">
 				<div className="col-md-2">
 					<img className="col-10 offset-1" alt={`${info.name} visual chart`} src={images(`./${info.id}.svg`)} />
 					<div className="text-center mt-3">
-						{info.name} {typedisplay}
+						{typedisplay}
 					</div>
 				</div>
 				<div className="col-md-10">
 					<div className="d-flex flex-column justify-content-between" style={{height:"100%"}}>
+						<p>{info.name}</p>
 						{description}
 						<div className="col-md-3">
 							{
