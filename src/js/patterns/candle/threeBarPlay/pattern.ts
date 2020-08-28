@@ -24,17 +24,21 @@ export default function pattern (graph: candleStickChart): patternResponse | und
 
 		// Check types (long, short, long)
 		if (!isLong(candle1) || isLong(candle2) || !isLong(candle3)) return;
-
+		
 		// Get candle size
 		const candleSize1 = candle1[3] - candle1[0];
 		const candleSize2 = candle2[0] - candle2[3];
 		const candleSize3 = candle3[3] - candle3[0];
-
+		
 		// Compare short with first long
 		if (candleSize2 * 2 > candleSize1) return;
-
+		
 		// Compare short with second long
 		if (candleSize2 * 2 > candleSize3) return;
+
+		// Compare between close and open
+		if (candle1[3] !== candle2[0]) return;
+		if (candle2[3] !== candle3[0]) return;
 	}
 
 	return info;

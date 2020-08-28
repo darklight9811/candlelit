@@ -129,4 +129,14 @@ describe("Test three bar play", () => {
 
 		expect(pattern(graph)).toBeUndefined();
 	});
+
+	it ("It should return false for the short candle bigger than the other ones", () => {
+		const graph: chart = [
+			generateCandle("long"),
+			generateCandle("short", 10),
+			generateCandle("long"),
+		];
+
+		expect(pattern(graph)).toBeUndefined();
+	});
 });

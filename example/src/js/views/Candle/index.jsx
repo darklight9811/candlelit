@@ -1,6 +1,6 @@
 // Packages
 import React from 'react';
-import ApexChart from 'react-apexcharts';
+import Chart from "react-google-charts";
 import axios from 'axios';
 
 // Components
@@ -20,6 +20,8 @@ import logo from '../../../img/candle.svg';
 
 // Part
 import style from './style.module.css';
+
+window.analyzeCandle = analyzeCandle;
 
 export default function Candle () {
 	//-------------------------------------------------
@@ -44,22 +46,19 @@ export default function Candle () {
 	// Memos
 	//-------------------------------------------------
 
-	const options = React.useMemo(() => {
-		return {
-			dataLabels:{enabled:false},
-			tooltip:{enabled:false},
-			legend:{show:false},
-		};
-	}, []);
-
 	const series = React.useMemo(() => {
-		return graph.map((item, index) => {
-			return  [index, item.open, item.high, item.low, item.close];
-		});
+		return [["index", "open", "high", "low", "close"],...graph.map((item, index) => {
+			return  [index, item.low, item.open, item.close, item.high];
+		})];
 	}, [graph]);
 
 	const patternsMatched = React.useMemo(() => {
-		const match = analyzeCandle(graph);
+		const match = analyzeCandle(graph.map(item => [
+			item.open,
+			item.high,
+			item.low,
+			item.close
+		]));
 
 		// No matches found
 		if (!match.length) {
@@ -69,7 +68,7 @@ export default function Candle () {
 		// Parse to JSX
 		const response = [];
 
-		response.push("Patterns matched: ");
+		response.push("Patterns detected: ");
 
 		for (let i = 0; i < match.length; i++) {
 			const type = match[i].type ? style[match[i].type]:'';
@@ -84,7 +83,7 @@ export default function Candle () {
 			const { info } = item;
 
 			return (
-				<PatternItem info={info} />
+				<PatternItem key={info.id} info={info} />
 			);
 		});
 	}, []);
@@ -98,10 +97,10 @@ export default function Candle () {
 		.then((response) => {
 			setgraph(response.data.map(item => {
 				return {
-					open: item[1].replace(/[0]+$/, ''),
-					high: item[2].replace(/[0]+$/, ''),
-					low: item[3].replace(/[0]+$/, ''),
-					close: item[4].replace(/[0]+$/, ''),
+					open: 	parseFloat(item[1].replace(/[0]+$/, '')),
+					high: 	parseFloat(item[2].replace(/[0]+$/, '')),
+					low: 	parseFloat(item[3].replace(/[0]+$/, '')),
+					close: 	parseFloat(item[4].replace(/[0]+$/, '')),
 				};
 			}));
 		});
@@ -120,12 +119,24 @@ export default function Candle () {
 				</div>
 
 				<div className="row">
-					<div className="col-md-6">
+					<div className={"col-md-6 " + style.overwrite}>
 						<div className="row">
 							<Button href="/"><i className="fa fa-arrow-left" /></Button>
 							<Button onClick={onFetch}>Fetch from binance</Button>
 						</div>
-						<ApexChart options={options} type="candlestick" series={[{data:series}]} height={350} />
+						<Chart
+							chartType="CandlestickChart"
+							data={series}
+							height={350}
+							width="100%"
+							options={{
+								legend: 'none',
+								candlestick: {
+									fallingColor: { strokeWidth: 0, fill: '#a52714' }, // red
+									risingColor: { strokeWidth: 0, fill: '#0f9d58' }, // green
+								}
+							}}
+						/>
 						<p>{patternsMatched}</p>
 					</div>
 					<div className="col-md-6">

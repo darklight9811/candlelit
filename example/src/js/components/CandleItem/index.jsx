@@ -47,7 +47,12 @@ export default function Item ({setgraph, graph, last, index, ...candle}) {
 
 	const onSave = React.useCallback(() => {
 		const newgraph = [...graph];
-		newgraph[index] = data;
+		newgraph[index] = {
+			open: parseInt(data.open),
+			close: parseInt(data.close),
+			high: parseInt(data.high),
+			low: parseInt(data.low),
+		};
 
 		setgraph(newgraph);
 		setonedit(false);
