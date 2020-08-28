@@ -5,7 +5,7 @@ import pattern from './index';
 import chart from '../../../interfaces/candle';
 
 // Helpers
-import { generateCandle } from '../../../helpers/candlestick';
+import { generateCandle, generateCandleGraph } from '../../../helpers/candlestick';
 
 describe("Test three bar play", () => {
 
@@ -23,11 +23,13 @@ describe("Test three bar play", () => {
 	});
 
 	it ("It should return true to three candles or more", () => {
-		const graph: chart = [
-			generateCandle("long", 10),
-			generateCandle("short", 2),
-			generateCandle("long", 10),
-		];
+		const graph: chart = generateCandleGraph([
+			{size:10, type:"long"},
+			{size:2, type:"short"},
+			{size:10, type:"long"},
+		]);
+
+		console.log(graph);
 
 		expect(pattern(graph)).toBeDefined();
 	});
@@ -37,12 +39,12 @@ describe("Test three bar play", () => {
 	// -------------------------------------------------
 
 	it ("It should return true for long, short, long candles", () => {
-		const graph: chart = [
-			generateCandle("long", 10),
-			generateCandle("short", 2),
-			generateCandle("long", 10),
-		];
-
+		const graph: chart = generateCandleGraph([
+			{size:10, type:"long"},
+			{size:2, type:"short"},
+			{size:10, type:"long"},
+		]);
+		
 		expect(pattern(graph)).toBeDefined();
 	});
 
