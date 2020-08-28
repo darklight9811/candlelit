@@ -114,8 +114,8 @@ export default function Candle () {
 		<div className="background-dark py-5">
 			<div className="container">
 				<div className="d-flex mb-5">
-					<img alt="candlelit logo" src={logo} className="col-1" />
-					<h1 className="col-11 m-0">Candlestick chart patterns</h1>
+					<img alt="candlelit logo" src={logo} className="d-none d-sm-block" />
+					<h1 className="col-11 m-0" style={{lineHeight:"85px"}}>Candlestick chart patterns</h1>
 				</div>
 
 				<div className="row">
@@ -139,7 +139,7 @@ export default function Candle () {
 						/>
 						<p>{patternsMatched}</p>
 					</div>
-					<div className="col-md-6">
+					<div className="col-md-6 p-0 pr-3">
 						<div style={{maxHeight:500, overflow:"auto"}}>
 							<div className="d-flex justify-content-center flex-column">
 								<List graph={graph}>
