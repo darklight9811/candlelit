@@ -29,8 +29,6 @@ describe("Test three bar play", () => {
 			{size:10, type:"long"},
 		]);
 
-		console.log(graph);
-
 		expect(pattern(graph)).toBeDefined();
 	});
 
@@ -44,7 +42,7 @@ describe("Test three bar play", () => {
 			{size:2, type:"short"},
 			{size:10, type:"long"},
 		]);
-		
+
 		expect(pattern(graph)).toBeDefined();
 	});
 
@@ -137,6 +135,20 @@ describe("Test three bar play", () => {
 			generateCandle("long"),
 			generateCandle("short", 10),
 			generateCandle("long"),
+		];
+
+		expect(pattern(graph)).toBeUndefined();
+	});
+
+	// -------------------------------------------------
+	// Candle position comparison
+	// -------------------------------------------------
+
+	it ("It should return false for candles that do not open/close correctly", () => {
+		const graph: chart = [
+			generateCandle("long", 10),
+			generateCandle("short", 2),
+			generateCandle("long", 10),
 		];
 
 		expect(pattern(graph)).toBeUndefined();
