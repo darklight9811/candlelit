@@ -12,19 +12,21 @@ let cache: CacheInfo = {} as any;
  * @param {candlePatternFunction[]} patternChecklist The patterns that will be used to analyze the graph
  * @returns {patternResponse[]} The matched patterns
  */
-function analyze (graph: candlegraph, _patternList?: candlePatternFunction[], overwrite?: boolean): patternResponse[] {
-	const funcs 	= _patternList ? (overwrite? patternlist.concat(_patternList):_patternList):patternlist;
-	const _graph 	= cache? (graph.reverse().slice(0, cache.maxCandles).reverse()):graph;
-	const response 	= [] as patternResponse[];
-
-	// Search functions
-	for (let i = 0; i < funcs.length; i++) {
-		const answer = funcs[i](_graph);
-
-		if (answer) response.push(answer);
-	}
-
-	return response;
+function analyze (graph: candlegraph, _patternList?: candlePatternFunction[], overwrite?: boolean): Promise<patternResponse[]> {
+	return new Promise((resolve) => {
+		const funcs 	= _patternList ? (overwrite? patternlist.concat(_patternList):_patternList):patternlist;
+		const _graph 	= cache? (graph.reverse().slice(0, cache.maxCandles).reverse()):graph;
+		const response 	= [] as patternResponse[];
+	
+		// Search functions
+		for (let i = 0; i < funcs.length; i++) {
+			const answer = funcs[i](_graph);
+	
+			if (answer) response.push(answer);
+		}
+	
+		resolve(response);
+	});
 }
 
 analyze._patternlist = patternlist;
