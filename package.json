@@ -1,6 +1,6 @@
 {
   "name": "candlelit",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "description": "A set of tools to detect patterns in graphs",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -20,7 +20,10 @@
     "graph",
     "tools",
     "typescript",
-    "javascript"
+	"javascript",
+	"pattern",
+	"trading",
+	"candlestick"
   ],
   "author": "rafael.chaves98@hotmail.com",
   "license": "BSD-3-Clause",
@@ -33,5 +36,4 @@
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.9.7"
   },
-  "dependencies": {}
 }

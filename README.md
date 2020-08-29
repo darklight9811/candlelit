@@ -1,6 +1,6 @@
 <p align="center"><img src="https://github.com/darklight9811/candlelit/blob/master/example/src/img/logo.svg" width="256"></p>
 
-![GitHub](https://img.shields.io/github/license/darklight9811/candlelit) ![npm](https://img.shields.io/npm/dm/candlelit) ![npm](https://img.shields.io/npm/v/candlelit) [![Build Status](https://travis-ci.org/darklight9811/candlelit.svg?branch=master)](https://travis-ci.org/darklight9811/candlelit)
+![GitHub](https://img.shields.io/github/license/darklight9811/candlelit) ![npm](https://img.shields.io/npm/dm/candlelit) ![npm](https://img.shields.io/npm/v/candlelit) [![Build Status](https://travis-ci.org/darklight9811/candlelit.svg?branch=master)](https://travis-ci.org/darklight9811/candlelit) [![Support](https://img.shields.io/badge/Patreon-Support-orange.svg?logo=Patreon)](https://www.patreon.com/rafaelcorrea)
 
 # WIP: candlelit
 Candlelit is a bundle of useful functions and patterns to help you build your own matches for entry points in any market.
