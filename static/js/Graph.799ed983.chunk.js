@@ -1,0 +1,2 @@
+(this.webpackJsonpexample=this.webpackJsonpexample||[]).push([[1],{72:function(e,n,t){"use strict";t.r(n),t.d(n,"default",(function(){return i}));var u=t(0),a=t.n(u);function i(){return a.a.createElement("div",null,"hi")}}}]);
+//# sourceMappingURL=Graph.799ed983.chunk.js.map
