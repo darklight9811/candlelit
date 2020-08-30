@@ -32,89 +32,86 @@ describe("Test evening star", () => {
 		expect(pattern(graph)).toBeDefined();
 	});
 
-	// tests are not ready
-	return;
-
 	// -------------------------------------------------
 	// Candle type
 	// -------------------------------------------------
 
-	it ("It should return true for long, short, long candles", () => {
+	it ("It should return true for short, short, long candles", () => {
 		const graph: chart = generateCandleGraph([
-			{size:10, type:"long"},
-			{size:2, type:"short"},
-			{size:10, type:"long"},
+			{size:100, type:"short"},
+			{size:2, type:"short", wickSize:10},
+			{size:100, type:"long"},
 		]);
 
 		expect(pattern(graph)).toBeDefined();
 	});
 
 	it ("It should return false for all short candles", () => {
-		const graph: chart = [
-			generateCandle("short"),
-			generateCandle("short"),
-			generateCandle("short"),
-		];
+		const graph: chart = generateCandleGraph([
+			{size:100, type:"short"},
+			{size:2, type:"short", wickSize:10},
+			{size:100, type:"short"},
+		]);
 
 		expect(pattern(graph)).toBeUndefined();
 	});
 
-	it ("It should return false for short, short, long candles", () => {
-		const graph: chart = [
-			generateCandle("short"),
-			generateCandle("short"),
-			generateCandle("long"),
-		];
+	it ("It should return false for long, short, long candles", () => {
+		const graph: chart = generateCandleGraph([
+			{size:100, type:"long"},
+			{size:2, type:"short", wickSize:10},
+			{size:100, type:"long"},
+		]);
 
 		expect(pattern(graph)).toBeUndefined();
 	});
 
 	it ("It should return false for short, long, long candles", () => {
-		const graph: chart = [
-			generateCandle("short"),
-			generateCandle("long"),
-			generateCandle("long"),
-		];
+		const graph: chart = generateCandleGraph([
+			{size:100, type:"short"},
+			{size:2, type:"long", wickSize:10},
+			{size:100, type:"long"},
+		]);
 
 		expect(pattern(graph)).toBeUndefined();
 	});
 
 	it ("It should return false for all long candles", () => {
-		const graph: chart = [
-			generateCandle("long"),
-			generateCandle("long"),
-			generateCandle("long"),
-		];
+		const graph: chart = generateCandleGraph([
+			{size:100, type:"long"},
+			{size:2, type:"long", wickSize:10},
+			{size:100, type:"long"},
+		]);
 
 		expect(pattern(graph)).toBeUndefined();
 	});
 
 	it ("It should return false for long, long, short candles", () => {
-		const graph: chart = [
-			generateCandle("long"),
-			generateCandle("long"),
-			generateCandle("short"),
-		];
+		const graph: chart = generateCandleGraph([
+			{size:100, type:"long"},
+			{size:2, type:"long", wickSize:10},
+			{size:100, type:"short"},
+		]);
 
 		expect(pattern(graph)).toBeUndefined();
 	});
 
 	it ("It should return false for long, short, short candles", () => {
-		const graph: chart = [
-			generateCandle("long"),
-			generateCandle("short"),
-			generateCandle("short"),
-		];
+		const graph: chart = generateCandleGraph([
+			{size:100, type:"long"},
+			{size:2, type:"short", wickSize:10},
+			{size:100, type:"short"},
+		]);
 
 		expect(pattern(graph)).toBeUndefined();
 	});
 
 	it ("It should return false for short, long, short candles", () => {
-		const graph: chart = [
-			generateCandle("short"),
-			generateCandle("long"),
-			generateCandle("short"),
-		];
+		const graph: chart = generateCandleGraph([
+			{size:100, type:"short"},
+			{size:2, type:"long", wickSize:10},
+			{size:100, type:"short"},
+		]);
 
 		expect(pattern(graph)).toBeUndefined();
 	});
@@ -124,21 +121,11 @@ describe("Test evening star", () => {
 	// -------------------------------------------------
 
 	it ("It should return false for candles with the same size", () => {
-		const graph: chart = [
-			generateCandle("long"),
-			generateCandle("short"),
-			generateCandle("long"),
-		];
-
-		expect(pattern(graph)).toBeUndefined();
-	});
-
-	it ("It should return false for the short candle bigger than the other ones", () => {
-		const graph: chart = [
-			generateCandle("long"),
-			generateCandle("short", 10),
-			generateCandle("long"),
-		];
+		const graph: chart = generateCandleGraph([
+			{size:100, type:"short"},
+			{size:100, type:"long", wickSize:10},
+			{size:100, type:"short"},
+		]);
 
 		expect(pattern(graph)).toBeUndefined();
 	});
@@ -149,9 +136,9 @@ describe("Test evening star", () => {
 
 	it ("It should return false for candles that do not open/close correctly", () => {
 		const graph: chart = [
-			generateCandle("long", 10),
-			generateCandle("short", 2),
-			generateCandle("long", 10),
+			generateCandle("short", 10),
+			generateCandle("long", 2),
+			generateCandle("short", 10),
 		];
 
 		expect(pattern(graph)).toBeUndefined();
