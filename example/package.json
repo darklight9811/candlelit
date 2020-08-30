@@ -11,7 +11,7 @@
     "apexcharts": "^3.20.0",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
-    "candlelit": "file:../../candlelit/build",
+    "candlelit": "file:../../candlelit",
     "formalization": "^1.4.9",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
