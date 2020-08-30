@@ -39,7 +39,7 @@ export default function pattern (graph: candleStickChart): patternResponse | und
 		// Compare between close and open
 		if (candle1[3] !== candle2[0]) return;
 		if (candle2[3] !== candle3[0]) return;
-	}
 
-	return info;
+		return info;
+	}
 }
