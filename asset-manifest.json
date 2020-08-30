@@ -11,8 +11,8 @@
     "NotFound.js": "/candlelit/static/js/NotFound.9f4a6814.chunk.js",
     "NotFound.js.map": "/candlelit/static/js/NotFound.9f4a6814.chunk.js.map",
     "main.css": "/candlelit/static/css/main.167661f4.chunk.css",
-    "main.js": "/candlelit/static/js/main.19adac91.chunk.js",
-    "main.js.map": "/candlelit/static/js/main.19adac91.chunk.js.map",
+    "main.js": "/candlelit/static/js/main.d10c7334.chunk.js",
+    "main.js.map": "/candlelit/static/js/main.d10c7334.chunk.js.map",
     "runtime-main.js": "/candlelit/static/js/runtime-main.e6008174.js",
     "runtime-main.js.map": "/candlelit/static/js/runtime-main.e6008174.js.map",
     "static/js/6.02d9081d.chunk.js": "/candlelit/static/js/6.02d9081d.chunk.js",
@@ -21,7 +21,7 @@
     "static/js/7.420e9040.chunk.js": "/candlelit/static/js/7.420e9040.chunk.js",
     "static/js/7.420e9040.chunk.js.map": "/candlelit/static/js/7.420e9040.chunk.js.map",
     "index.html": "/candlelit/index.html",
-    "precache-manifest.a247ee44eca906e6267ff9ee0dbfa25d.js": "/candlelit/precache-manifest.a247ee44eca906e6267ff9ee0dbfa25d.js",
+    "precache-manifest.06424e8f19b24798d33c400637d010ad.js": "/candlelit/precache-manifest.06424e8f19b24798d33c400637d010ad.js",
     "service-worker.js": "/candlelit/service-worker.js",
     "static/css/7.a30b55e2.chunk.css.map": "/candlelit/static/css/7.a30b55e2.chunk.css.map",
     "static/css/Candle.ce523398.chunk.css.map": "/candlelit/static/css/Candle.ce523398.chunk.css.map",
@@ -41,6 +41,6 @@
     "static/css/7.a30b55e2.chunk.css",
     "static/js/7.420e9040.chunk.js",
     "static/css/main.167661f4.chunk.css",
-    "static/js/main.19adac91.chunk.js"
+    "static/js/main.d10c7334.chunk.js"
   ]
 }
