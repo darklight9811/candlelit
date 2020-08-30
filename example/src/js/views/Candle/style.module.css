@@ -1,9 +1,0 @@
-.short {
-	color: red;
-}
-.long {
-	color: green;
-}
-.overwrite svg > [fill="#ffffff"] {
-	display: none;
-}
