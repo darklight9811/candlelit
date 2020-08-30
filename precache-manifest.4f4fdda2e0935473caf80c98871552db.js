@@ -1,59 +1,59 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "45a97a63a7c9d65602c255133f56ebdc",
+    "revision": "713f0edb50d6a0bce01e4622326d78d1",
     "url": "/candlelit/index.html"
   },
   {
-    "revision": "7431bdbbb9a4e3c056f2",
+    "revision": "b8aaacc01ecc2637b1fa",
     "url": "/candlelit/static/css/7.a30b55e2.chunk.css"
   },
   {
-    "revision": "a678d228a55f49f768b6",
+    "revision": "e4f52d27a88a4ed7cdd0",
     "url": "/candlelit/static/css/Candle.ce523398.chunk.css"
   },
   {
-    "revision": "ddc2138bff528ef8696e",
+    "revision": "81f5ffbb7ebd13a9c3ce",
     "url": "/candlelit/static/css/Home.b744759f.chunk.css"
   },
   {
-    "revision": "9b791364f45bcccd4d6f",
+    "revision": "4af000845cde65190280",
     "url": "/candlelit/static/css/main.167661f4.chunk.css"
   },
   {
-    "revision": "665fcca500c450fee758",
-    "url": "/candlelit/static/js/6.02d9081d.chunk.js"
+    "revision": "d8bf5d521f6f3f6a5fd7",
+    "url": "/candlelit/static/js/6.0428b2f4.chunk.js"
   },
   {
-    "revision": "7431bdbbb9a4e3c056f2",
-    "url": "/candlelit/static/js/7.420e9040.chunk.js"
+    "revision": "b8aaacc01ecc2637b1fa",
+    "url": "/candlelit/static/js/7.bdcbe737.chunk.js"
   },
   {
-    "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/candlelit/static/js/7.420e9040.chunk.js.LICENSE.txt"
+    "revision": "c64c486544348f10a6d6c716950bc223",
+    "url": "/candlelit/static/js/7.bdcbe737.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a678d228a55f49f768b6",
-    "url": "/candlelit/static/js/Candle.73f9f45f.chunk.js"
+    "revision": "e4f52d27a88a4ed7cdd0",
+    "url": "/candlelit/static/js/Candle.8813e910.chunk.js"
   },
   {
-    "revision": "1ca3b3c4c0b373553a4f",
-    "url": "/candlelit/static/js/Graph.799ed983.chunk.js"
+    "revision": "195e7f82b270a192a886",
+    "url": "/candlelit/static/js/Graph.33792d5b.chunk.js"
   },
   {
-    "revision": "ddc2138bff528ef8696e",
-    "url": "/candlelit/static/js/Home.44b900e3.chunk.js"
+    "revision": "81f5ffbb7ebd13a9c3ce",
+    "url": "/candlelit/static/js/Home.5799c41b.chunk.js"
   },
   {
-    "revision": "6459af22231c22ee940a",
-    "url": "/candlelit/static/js/NotFound.9f4a6814.chunk.js"
+    "revision": "df585d5836ba0205ca97",
+    "url": "/candlelit/static/js/NotFound.4030d296.chunk.js"
   },
   {
-    "revision": "9b791364f45bcccd4d6f",
-    "url": "/candlelit/static/js/main.d10c7334.chunk.js"
+    "revision": "4af000845cde65190280",
+    "url": "/candlelit/static/js/main.04a2a13d.chunk.js"
   },
   {
-    "revision": "a12fc2f73f26c4c86ae7",
-    "url": "/candlelit/static/js/runtime-main.e6008174.js"
+    "revision": "ab201ea7005ba2962a1e",
+    "url": "/candlelit/static/js/runtime-main.12b66212.js"
   },
   {
     "revision": "c5999e02b309f05cad465a96befc2c17",
