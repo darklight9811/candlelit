@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "713f0edb50d6a0bce01e4622326d78d1",
+    "revision": "f04aff39087cdd2c0c8e2883627dd75d",
     "url": "/candlelit/index.html"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/candlelit/static/css/Home.b744759f.chunk.css"
   },
   {
-    "revision": "4af000845cde65190280",
+    "revision": "55632b26c7f242c9c85f",
     "url": "/candlelit/static/css/main.167661f4.chunk.css"
   },
   {
@@ -48,8 +48,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/candlelit/static/js/NotFound.4030d296.chunk.js"
   },
   {
-    "revision": "4af000845cde65190280",
-    "url": "/candlelit/static/js/main.04a2a13d.chunk.js"
+    "revision": "55632b26c7f242c9c85f",
+    "url": "/candlelit/static/js/main.dc303dc4.chunk.js"
   },
   {
     "revision": "ab201ea7005ba2962a1e",
