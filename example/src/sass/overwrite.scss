@@ -1,0 +1,21 @@
+body {
+	overflow-x: hidden;
+}
+
+#app {
+	min-height: 100vh;
+	width: 100vw;
+}
+
+* {
+	color: var(--light_color);
+}
+
+a > i {
+	line-height: 23px !important;
+}
+
+.title:after {
+	margin: 0;
+	margin-left: 20px;
+}

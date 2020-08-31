@@ -1,0 +1,20 @@
+[
+	{
+		"open":5,
+		"close": 10,
+		"high": 12,
+		"low":5
+	},
+	{
+		"open":10,
+		"close": 2,
+		"high": 10,
+		"low":2
+	},
+	{
+		"open":2,
+		"close": 15,
+		"high": 20,
+		"low":0
+	}
+]
